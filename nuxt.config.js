@@ -42,8 +42,15 @@ export default {
     // Doc: https://buefy.github.io/#/documentation
     'nuxt-buefy',
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources'
   ],
+  /*
+   ** Globals Styles
+   */
+  styleResources: {
+    scss: ['~assets/scss/globals/_variables.scss']
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

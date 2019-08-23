@@ -1,5 +1,6 @@
 <template>
   <div>
+    <hero />
     <nav
       class="navbar header has-shadow is-primary"
       role="navigation"
@@ -40,7 +41,12 @@
 </template>
 
 <script>
+import Hero from '@/components/Hero'
+
 export default {
+  components: {
+    Hero
+  },
   data() {
     return {
       items: [
