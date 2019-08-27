@@ -2,11 +2,9 @@
   <div class="hero-wrapper is-light">
     <section class="hero container">
       <div class="hero-body">
-        <div data-splitting class="title hero__block--title">
-          Hi my name is
-          <span class="hero__span--person-name">Garcia</span> <br />
-          a fullstack developer
-        </div>
+        <no-ssr>
+          <hero-splitting />
+        </no-ssr>
         <div class="subtitle">
           Sit nulla mollit velit eu proident.
         </div>
@@ -16,7 +14,14 @@
 </template>
 
 <script>
+import noSsr from 'vue-no-ssr'
+import heroSplitting from './HeroSplitting'
+
 export default {
+  components: {
+    noSsr,
+    heroSplitting
+  },
   mounted() {
     window.Splitting()
   }
@@ -60,6 +65,7 @@ export default {
     animation-delay: calc(30ms * var(--char-index));
   }
 }
+
 @keyframes split {
   0% {
     opacity: 0;
