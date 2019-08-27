@@ -27,7 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~/plugins/splitting', mode: 'client' }],
   /*
    ** Nuxt.js dev-modules
    */

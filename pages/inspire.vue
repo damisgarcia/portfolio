@@ -11,3 +11,8 @@
     </h3>
   </section>
 </template>
+<script>
+export default {
+  layout: 'inspire'
+}
+</script>

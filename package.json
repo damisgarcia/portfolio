@@ -17,7 +17,10 @@
     "buefy": "^0.8.2",
     "bulma": "^0.7.5",
     "nuxt": "^2.0.0",
-    "nuxt-buefy": "^0.3.2"
+    "nuxt-buefy": "^0.3.2",
+    "splitting": "^1.0.6",
+    "vue-no-ssr": "^1.1.1",
+    "vue-typer": "^1.2.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
