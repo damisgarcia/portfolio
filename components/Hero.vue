@@ -1,10 +1,17 @@
 <template>
-  <div class="hero">
-    <div class="hero__title">Lorem Ipsum</div>
-    <div class="hero__title--subtitle">
-      Exercitation tempor ut reprehenderit id anim aute pariatur elit nostrud
-      deserunt consectetur.
-    </div>
+  <div class="hero-wrapper is-light">
+    <section class="hero container">
+      <div class="hero-body">
+        <div class="title hero__block--title">
+          Hi my name is
+          <span class="hero__span--person-name">Garcia</span> <br />
+          i fullstack developer
+        </div>
+        <div class="subtitle">
+          Sit nulla mollit velit eu proident.
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -13,18 +20,29 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.hero {
+.hero-wrapper {
   display: flex;
-  background-color: $bg-color;
+  background-color: transparentize($turquoise, 0.8);
   width: 100vw;
   height: 100vh;
   align-items: center;
-  justify-content: center;
   padding: 48px;
-  &__title {
-    font-size: 24px;
-    &--subtitle {
-      font-size: 12px;
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero {
+    &__block {
+      &--title {
+        font-size: 48px;
+        color: $black !important;
+      }
+    }
+    &__span {
+      &--person-name {
+        color: $red !important;
+      }
     }
   }
 }

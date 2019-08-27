@@ -49,7 +49,13 @@ export default {
    ** Globals Styles
    */
   styleResources: {
-    scss: ['~assets/scss/globals/_variables.scss']
+    scss: [
+      '~assets/scss/globals/_buefy.scss',
+      '~assets/scss/globals/_variables.scss'
+    ]
+  },
+  buefy: {
+    css: false
   },
   /*
    ** Axios module configuration
