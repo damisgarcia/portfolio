@@ -9,13 +9,13 @@
       </b-navbar-item>
     </template> -->
     <template slot="end">
-      <b-navbar-item href="#" class="navbar__item">
+      <b-navbar-item href="#about" class="navbar__item">
         Sobre
       </b-navbar-item>
-      <b-navbar-item href="#" class="navbar__item">
+      <b-navbar-item href="#portfolio" class="navbar__item">
         Portfolio
       </b-navbar-item>
-      <b-navbar-item href="#" class="navbar__item">
+      <b-navbar-item href="#findme" class="navbar__item">
         Encontre-me
       </b-navbar-item>
     </template>

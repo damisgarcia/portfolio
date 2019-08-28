@@ -16,6 +16,7 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "buefy": "^0.8.2",
     "bulma": "^0.7.5",
+    "lodash": "^4.17.15",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
     "splitting": "^1.0.6",
