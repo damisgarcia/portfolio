@@ -19,7 +19,9 @@
     "lodash": "^4.17.15",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
+    "nuxt-i18n": "^6.1.1",
     "splitting": "^1.0.6",
+    "vue-i18n-loader": "^1.0.0",
     "vue-no-ssr": "^1.1.1",
     "vue-typer": "^1.2.0"
   },

@@ -43,8 +43,37 @@ export default {
     'nuxt-buefy',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    // Doc: https://nuxt-community.github.io/nuxt-i18n/setup.html
+    [
+      'nuxt-i18n',
+      {
+        vueI18nLoader: true,
+        detectBrowserLanguage: {
+          useCookie: false
+        }
+      }
+    ],
     '@nuxtjs/style-resources'
   ],
+  i18n: {
+    locales: ['pt-br', 'en'],
+    defaultLocale: 'pt-br',
+    vueI18n: {
+      fallbackLocale: 'pt-br',
+      messages: {
+        'pt-br': {
+          about: 'Sobre',
+          portfolio: 'Projetos',
+          contact: 'Contato'
+        },
+        en: {
+          about: 'About',
+          portfolio: 'Projects',
+          contact: 'Contact'
+        }
+      }
+    }
+  },
   /*
    ** Globals Styles
    */

@@ -2,9 +2,7 @@
   <div>
     <navbar />
     <hero />
-    <section class="main-content columns">
-      <nuxt />
-    </section>
+    <nuxt />
   </div>
 </template>
 

@@ -9,21 +9,27 @@
       </b-navbar-item>
     </template> -->
     <template slot="end">
-      <b-navbar-item href="#about" class="navbar__item">
-        Sobre
+      <b-navbar-item :href="getLink('about')" class="navbar__item">
+        {{ $t('about') }}
       </b-navbar-item>
-      <b-navbar-item href="#portfolio" class="navbar__item">
-        Portfolio
+      <b-navbar-item :href="getLink('portfolio')" class="navbar__item">
+        {{ $t('portfolio') }}
       </b-navbar-item>
-      <b-navbar-item href="#findme" class="navbar__item">
-        Encontre-me
+      <b-navbar-item :href="getLink('contact')" class="navbar__item">
+        {{ $t('contact') }}
       </b-navbar-item>
     </template>
   </b-navbar>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    getLink(link) {
+      return '#' + this.$t(link).toLowerCase()
+    }
+  }
+}
 </script>
 
 <style lang="scss">
