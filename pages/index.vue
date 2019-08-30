@@ -1,6 +1,7 @@
 <template>
   <div>
-    <section :id="getLinkId('about')" class="section">
+    <hero class="section" />
+    <section class="section">
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('about') }}</div>
@@ -27,7 +28,7 @@
         </div>
       </div>
     </section>
-    <section :id="getLinkId('portfolio')" class="hero section is-light">
+    <section class="hero section is-light">
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('portfolio') }}</div>
@@ -65,10 +66,7 @@
         </div>
       </div>
     </section>
-    <section
-      :id="getLinkId('contact')"
-      class="hero section is-primary is-primary-medium"
-    >
+    <section class="hero section is-primary is-primary-medium">
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('contact') }}</div>
@@ -110,10 +108,11 @@
 </template>
 
 <script>
+import Hero from '~/components/Hero'
 import Skills from '~/components/Skills'
 export default {
   name: 'HomePage',
-  components: { Skills },
+  components: { Skills, Hero },
   data() {
     return {
       profilePicture:

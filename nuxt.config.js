@@ -27,7 +27,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/splitting', mode: 'client' }],
+  plugins: [
+    { src: '~/plugins/splitting', mode: 'client' },
+    { src: '~/plugins/vue-scroll-spy', mode: 'client' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -62,11 +65,13 @@ export default {
       fallbackLocale: 'pt-br',
       messages: {
         'pt-br': {
+          home: 'Início',
           about: 'Sobre',
           portfolio: 'Projetos',
           contact: 'Contato'
         },
         en: {
+          home: 'Home',
           about: 'About',
           portfolio: 'Projects',
           contact: 'Contact'

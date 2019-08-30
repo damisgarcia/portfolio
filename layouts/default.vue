@@ -1,19 +1,19 @@
 <template>
-  <div>
+  <div class="main">
     <navbar />
-    <hero />
     <nuxt />
+    <link-top />
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar'
-import Hero from '@/components/Hero'
+import LinkTop from '@/components/LinkTop'
 
 export default {
   components: {
-    Hero,
-    Navbar
+    Navbar,
+    LinkTop
   },
   data() {
     return {

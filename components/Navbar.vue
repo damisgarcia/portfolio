@@ -40,6 +40,26 @@ export default {
   }
   &__item {
     text-transform: uppercase;
+    &:first-child {
+      &.active {
+        animation: fadeOut 300ms ease-in-out both;
+      }
+    }
+  }
+  &__block {
+    &--float-left {
+      display: flex;
+    }
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 </style>
