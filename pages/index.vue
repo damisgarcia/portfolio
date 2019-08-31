@@ -1,7 +1,10 @@
 <template>
   <div>
-    <hero class="section" />
-    <section class="section">
+    <navbar />
+    <section :id="getLinkId('homepage')">
+      <hero />
+    </section>
+    <section :id="getLinkId('about')" class="section">
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('about') }}</div>
@@ -28,7 +31,7 @@
         </div>
       </div>
     </section>
-    <section class="hero section is-light">
+    <section :id="getLinkId('portfolio')" class="hero section is-light">
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('portfolio') }}</div>
@@ -66,7 +69,10 @@
         </div>
       </div>
     </section>
-    <section class="hero section is-primary is-primary-medium">
+    <section
+      :id="getLinkId('contact')"
+      class="hero section is-primary is-primary-medium"
+    >
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('contact') }}</div>
@@ -109,10 +115,11 @@
 
 <script>
 import Hero from '~/components/Hero'
+import Navbar from '~/components/Navbar'
 import Skills from '~/components/Skills'
 export default {
   name: 'HomePage',
-  components: { Skills, Hero },
+  components: { Skills, Navbar, Hero },
   data() {
     return {
       profilePicture:
@@ -126,7 +133,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .section {
   display: flex;
   flex-direction: column;

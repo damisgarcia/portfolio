@@ -1,32 +1,63 @@
 <template>
-  <b-navbar :fixed-top="true" class="is-transparent">
-    <!-- <template slot="brand">
-      <b-navbar-item href="/">
-        <img
-            src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png"
-            alt="Lightweight UI components for Vue.js based on Bulma"
-          />
-      </b-navbar-item>
-    </template> -->
-    <template slot="end">
-      <b-navbar-item :href="getLink('about')" class="navbar__item">
-        {{ $t('about') }}
-      </b-navbar-item>
-      <b-navbar-item :href="getLink('portfolio')" class="navbar__item">
-        {{ $t('portfolio') }}
-      </b-navbar-item>
-      <b-navbar-item :href="getLink('contact')" class="navbar__item">
-        {{ $t('contact') }}
-      </b-navbar-item>
-    </template>
-  </b-navbar>
+  <div>
+    <b-navbar
+      :fixed-top="true"
+      :class="isDarkTheme ? 'is-primary' : 'is-transparent'"
+    >
+      <template slot="end">
+        <scrollactive
+          tag="div"
+          :modify-url="true"
+          :offset="0"
+          :duration="400"
+          @itemchanged="onItemChanged"
+        >
+          <b-navbar-item
+            v-for="item in items"
+            :key="item.label"
+            :href="getLink(item.label)"
+            class="navbar__item scrollactive-item"
+            :class="isDarkTheme ? 'is-dark' : 'is-light'"
+          >
+            {{ item.label }}
+          </b-navbar-item>
+        </scrollactive>
+      </template>
+    </b-navbar>
+    <link-top :visible="!isHome" />
+  </div>
 </template>
 
 <script>
+import LinkTop from '@/components/LinkTop'
 export default {
+  components: {
+    LinkTop
+  },
+  data() {
+    return {
+      section: null,
+      items: [
+        { label: this.$t('about') },
+        { label: this.$t('portfolio') },
+        { label: this.$t('contact') }
+      ]
+    }
+  },
+  computed: {
+    isDarkTheme() {
+      return this.section === '#contact'
+    },
+    isHome() {
+      return this.section === null
+    }
+  },
   methods: {
     getLink(link) {
       return '#' + this.$t(link).toLowerCase()
+    },
+    onItemChanged(event, currentItem, lastActiveItem) {
+      this.section = currentItem ? currentItem.getAttribute('href') : null
     }
   }
 }
@@ -34,21 +65,39 @@ export default {
 
 <style lang="scss">
 .navbar {
+  transition: background-color 300ms ease-in-out;
   &.is-transparent {
     background-color: transparent;
     background-image: none;
   }
   &__item {
     text-transform: uppercase;
-    &:first-child {
-      &.active {
-        animation: fadeOut 300ms ease-in-out both;
-      }
+    &.is-active {
+      font-weight: bold;
+      color: $link;
+    }
+    &.is-dark,
+    &.is-active.is-dark {
+      color: white;
+      background-color: transparent;
     }
   }
   &__block {
     &--float-left {
       display: flex;
+    }
+  }
+  .scrollactive-nav {
+    display: flex;
+  }
+}
+@media (max-width: $desktop) {
+  .navbar {
+    .scrollactive-nav {
+      flex-direction: column;
+    }
+    &__item {
+      color: $grey-darker !important;
     }
   }
 }

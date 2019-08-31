@@ -1,24 +1,35 @@
 <i18n>
 {
   "pt-br": {
-    "link-top-text": "Voltar ao topo"
+    "Link top": "Voltar ao topo"
   },
   "en": {
-    "link-top-text": "Back to top"
+    "Link top": "Back to top"
   }
 }
 </i18n>
 <template>
-  <div class="link-top">
-    <a class="button is-light" :href="getLink">{{ $t('link-top-text') }}</a>
-  </div>
+  <transition name="fade">
+    <a
+      v-if="visible"
+      class="button is-dark scrollactive-item link-top"
+      :href="getLink"
+      >{{ $t('Link top') }}</a
+    >
+  </transition>
 </template>
 
 <script>
 export default {
+  props: {
+    visible: {
+      type: Boolean,
+      required: true
+    }
+  },
   computed: {
     getLink() {
-      return '#' + this.$t('home').toLowerCase()
+      return '#' + this.$t('homepage').toLowerCase()
     }
   }
 }
@@ -30,18 +41,15 @@ export default {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  a.active {
-    animation: fadeOut 300ms ease both;
+  color: $white;
+  z-index: 10;
+  &.fade-enter-active,
+  &.fade-leave-active {
+    transition: opacity 300ms;
   }
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
+  &.fade-enter,
+  &.fade-leave-to {
     opacity: 0;
-    visibility: hidden;
   }
 }
 </style>

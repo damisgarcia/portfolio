@@ -29,7 +29,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/splitting', mode: 'client' },
-    { src: '~/plugins/vue-scroll-spy', mode: 'client' }
+    { src: '~/plugins/vue-scrollactive', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -65,18 +65,19 @@ export default {
       fallbackLocale: 'pt-br',
       messages: {
         'pt-br': {
-          home: 'Início',
+          homepage: 'Início',
           about: 'Sobre',
           portfolio: 'Projetos',
           contact: 'Contato'
         },
         en: {
-          home: 'Home',
+          homepage: 'Home',
           about: 'About',
           portfolio: 'Projects',
           contact: 'Contact'
         }
-      }
+      },
+      silentTranslationWarn: false
     }
   },
   /*
