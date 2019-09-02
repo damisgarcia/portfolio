@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="navbar-container">
     <b-navbar
       :fixed-top="true"
       :class="isDarkTheme ? 'is-primary' : 'is-transparent'"
@@ -64,31 +64,35 @@ export default {
 </script>
 
 <style lang="scss">
-.navbar {
-  transition: background-color 300ms ease-in-out;
-  &.is-transparent {
-    background-color: transparent;
-    background-image: none;
-  }
-  &__item {
-    text-transform: uppercase;
-    &.is-active {
-      font-weight: bold;
-      color: $link;
-    }
-    &.is-dark,
-    &.is-active.is-dark {
-      color: white;
+.navbar-container {
+  animation: fadeIn 500ms ease-in both;
+  animation-delay: 800ms;
+  .navbar {
+    transition: background-color 300ms ease-in-out;
+    &.is-transparent {
       background-color: transparent;
+      background-image: none;
     }
-  }
-  &__block {
-    &--float-left {
+    &__item {
+      text-transform: uppercase;
+      &.is-active {
+        font-weight: bold;
+        color: $link;
+      }
+      &.is-dark,
+      &.is-active.is-dark {
+        color: white;
+        background-color: transparent;
+      }
+    }
+    &__block {
+      &--float-left {
+        display: flex;
+      }
+    }
+    .scrollactive-nav {
       display: flex;
     }
-  }
-  .scrollactive-nav {
-    display: flex;
   }
 }
 @media (max-width: $desktop) {
