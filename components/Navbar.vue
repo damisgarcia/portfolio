@@ -7,8 +7,8 @@
       <template slot="end">
         <scrollactive
           tag="div"
-          :modify-url="true"
           :offset="0"
+          :modify-url="false"
           :duration="400"
           @itemchanged="onItemChanged"
         >
@@ -46,7 +46,8 @@ export default {
   },
   computed: {
     isDarkTheme() {
-      return this.section === '#contact'
+      const i18nContact = '#' + this.$t('contact').toLowerCase()
+      return this.section === i18nContact
     },
     isHome() {
       return this.section === null
@@ -72,6 +73,9 @@ export default {
     &.is-transparent {
       background-color: transparent;
       background-image: none;
+    }
+    &.is-primary {
+      background-color: transparentize($color: $primary, $amount: 0.5);
     }
     &__item {
       text-transform: uppercase;

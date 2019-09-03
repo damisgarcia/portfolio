@@ -56,7 +56,9 @@ export default {
         }
       }
     ],
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    // Doc: https://github.com/rigor789/vue-scrollto?ref=madewithvuejs.com
+    ['vue-scrollto/nuxt', { duration: 500 }]
   ],
   i18n: {
     locales: ['pt-br', 'en'],

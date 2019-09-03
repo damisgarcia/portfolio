@@ -12,8 +12,9 @@
   <transition name="fade">
     <a
       v-if="visible"
-      class="button is-dark scrollactive-item link-top"
+      v-scroll-to="{ el: getLink }"
       :href="getLink"
+      class="button is-dark scrollactive-item link-top"
       >{{ $t('Link top') }}</a
     >
   </transition>
@@ -31,6 +32,9 @@ export default {
     getLink() {
       return '#' + this.$t('homepage').toLowerCase()
     }
+  },
+  mounted() {
+    this.$scrollTo(this.getLink)
   }
 }
 </script>
