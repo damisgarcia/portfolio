@@ -4,7 +4,7 @@
     <section :id="getLinkId('homepage')">
       <hero />
     </section>
-    <section :id="getLinkId('about')" class="section">
+    <section :id="getLinkId('about')" class="hero section is-light">
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('about') }}</div>

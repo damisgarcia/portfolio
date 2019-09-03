@@ -1,5 +1,5 @@
 <template>
-  <b-table :data="data" :columns="columns" hoverable>
+  <b-table class="tabel" :data="data" :columns="columns">
     <template slot-scope="props">
       <b-table-column field="skill">
         {{ props.row.skill }}
@@ -44,3 +44,8 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.b-table {
+  background-color: transparent;
+}
+</style>

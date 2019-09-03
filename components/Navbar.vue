@@ -66,22 +66,19 @@ export default {
 
 <style lang="scss">
 .navbar-container {
-  animation: fadeIn 500ms ease-in both;
-  animation-delay: 800ms;
   .navbar {
-    transition: background-color 300ms ease-in-out;
-    &.is-transparent {
+    animation: fadeIn 500ms ease-in both;
+    animation-delay: 800ms;
+    &.is-transparent,
+    &.is-primary {
       background-color: transparent;
       background-image: none;
-    }
-    &.is-primary {
-      background-color: transparentize($color: $primary, $amount: 0.5);
     }
     &__item {
       text-transform: uppercase;
       &.is-active {
         font-weight: bold;
-        color: $link;
+        color: $dark;
       }
       &.is-dark,
       &.is-active.is-dark {
