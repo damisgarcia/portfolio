@@ -4,7 +4,7 @@
     <section :id="getLinkId('homepage')">
       <hero />
     </section>
-    <section :id="getLinkId('about')" class="hero section is-light">
+    <section :id="getLinkId('about')" class="section">
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('about') }}</div>
@@ -35,37 +35,7 @@
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('portfolio') }}</div>
-          <p>
-            Voluptate ut dolore sint anim mollit sit qui velit sit irure dolore
-            cupidatat ullamco nostrud. Id velit in non est nulla et consequat.
-            Occaecat ullamco aliqua reprehenderit mollit tempor esse irure
-            incididunt id consequat duis. Nisi elit consectetur magna qui anim
-            nulla do ullamco eu proident aliqua nostrud duis. Tempor sit eiusmod
-            anim enim enim.
-          </p>
-
-          <p>
-            Non mollit culpa ex deserunt amet mollit eu minim sit. Officia
-            aliqua consectetur aliquip nisi magna qui. Elit voluptate laborum
-            cupidatat dolore eiusmod pariatur reprehenderit ullamco minim eu
-            reprehenderit aute magna ea. Nisi consequat reprehenderit velit
-            cillum ea excepteur aute est. Eiusmod id anim est quis incididunt
-            tempor exercitation laborum eiusmod qui voluptate. Magna ipsum
-            cillum duis nostrud exercitation non magna cillum nostrud veniam
-            esse quis velit. Aliquip pariatur tempor dolore eu ex aute consequat
-            sit commodo veniam consectetur pariatur cupidatat duis.
-          </p>
-
-          <p>
-            Officia sit id eiusmod occaecat pariatur est laborum adipisicing
-            voluptate commodo magna reprehenderit. Nostrud ut velit ex aliquip
-            ad proident ipsum. Nulla cupidatat voluptate ad et elit.
-            Reprehenderit tempor ut enim enim minim do nostrud ut incididunt
-            adipisicing enim labore. Incididunt duis eu fugiat et dolore ex.
-            Fugiat labore Lorem labore cillum duis aliquip officia deserunt est
-            in non cupidatat. Deserunt eu laboris officia excepteur velit eu
-            elit quis proident voluptate qui amet ipsum.
-          </p>
+          <projects />
         </div>
       </div>
     </section>
@@ -117,9 +87,10 @@
 import Hero from '~/components/Hero'
 import Navbar from '~/components/Navbar'
 import Skills from '~/components/Skills'
+import Projects from '~/components/Projects'
 export default {
   name: 'HomePage',
-  components: { Skills, Navbar, Hero },
+  components: { Skills, Navbar, Hero, Projects },
   data() {
     return {
       profilePicture:
@@ -138,8 +109,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 110vh;
-  min-height: 480px;
+  min-height: 100vh;
   justify-content: center !important;
   padding: 1rem 3.5rem;
   p {
