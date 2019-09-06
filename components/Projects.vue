@@ -79,7 +79,7 @@
   <div>
     <ul>
       <li v-for="(__tag, index) in $t('tags')" :key="index">
-        <button @click="setTag(tag)">{{ __tag }}</button>
+        <button @click="setTag(__tag)">{{ __tag }}</button>
       </li>
     </ul>
     <ul>

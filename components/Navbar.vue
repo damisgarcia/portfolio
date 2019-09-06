@@ -7,7 +7,7 @@
       <template slot="end">
         <scrollactive
           tag="div"
-          :offset="0"
+          :offset="2"
           :modify-url="false"
           :duration="400"
           @itemchanged="onItemChanged"
@@ -16,8 +16,7 @@
             v-for="item in items"
             :key="item.label"
             :href="getLink(item.label)"
-            class="navbar__item scrollactive-item"
-            :class="isDarkTheme ? 'is-dark' : 'is-light'"
+            class="navbar__item scrollactive-item is-light"
           >
             {{ item.label }}
           </b-navbar-item>
@@ -45,10 +44,6 @@ export default {
     }
   },
   computed: {
-    isDarkTheme() {
-      const i18nContact = '#' + this.$t('contact').toLowerCase()
-      return this.section === i18nContact
-    },
     isHome() {
       return this.section === null
     }
@@ -68,14 +63,20 @@ export default {
 .navbar-container {
   .navbar {
     animation: fadeIn 500ms ease-in both;
-    animation-delay: 800ms;
+    animation-delay: 1.2s;
     &.is-transparent,
     &.is-primary {
       background-color: transparent;
       background-image: none;
     }
     &__item {
+      outline: none;
       text-transform: uppercase;
+      &:hover,
+      &:active,
+      &:visited {
+        color: $dark;
+      }
       &.is-active {
         font-weight: bold;
         color: $dark;
