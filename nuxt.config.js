@@ -51,6 +51,7 @@ export default {
       'nuxt-i18n',
       {
         vueI18nLoader: true,
+        silentTranslationWarn: true,
         detectBrowserLanguage: {
           useCookie: false
         }

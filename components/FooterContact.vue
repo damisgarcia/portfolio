@@ -1,19 +1,18 @@
 <template>
   <footer class="footer">
     <div class="container is-flex">
-      <b-button
+      <a
         v-for="media in social"
         :key="media.icon"
         :href="media.href"
-        :icon-right="media.icon"
         target="_blank"
         class="footer__button--social"
-        size="is-large"
-        tag="a"
-      />
+      >
+        <b-icon :icon="media.icon" size="is-large" />
+      </a>
     </div>
     <div class="content has-text-centered">
-      <p><strong>Damis Garcia</strong> ©2019</p>
+      <p><strong>Damis Garcia</strong> ©{{ getCurrentYear }}</p>
     </div>
   </footer>
 </template>
@@ -33,15 +32,33 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    getCurrentYear() {
+      const date = new Date()
+      return date.getFullYear()
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .footer {
+  background-color: $grey-dark;
+  color: $white;
+  p,
+  strong {
+    color: $white;
+  }
   &__button {
     &--social {
       margin: 0px 8px;
+      color: $white;
+      &:hover,
+      &:active,
+      &:visited {
+        color: transparentize($white, 0.5);
+      }
     }
   }
   .container {

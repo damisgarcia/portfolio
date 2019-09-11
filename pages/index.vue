@@ -31,7 +31,7 @@
         </div>
       </div>
     </section>
-    <section :id="getLinkId('portfolio')" class="hero section is-light">
+    <section :id="getLinkId('portfolio')" class="section">
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('portfolio') }}</div>
@@ -39,7 +39,8 @@
         </div>
       </div>
     </section>
-    <footer-contact :id="getLinkId('contact')" />
+    <languanges :id="getLinkId('contact')" />
+    <footer-contact />
   </div>
 </template>
 
@@ -48,11 +49,12 @@ import Hero from '~/components/Hero'
 import Navbar from '~/components/Navbar'
 import Skills from '~/components/Skills'
 import Projects from '~/components/Projects'
+import Languanges from '~/components/Languanges'
 import FooterContact from '~/components/FooterContact'
 
 export default {
   name: 'HomePage',
-  components: { Skills, Navbar, Hero, Projects, FooterContact },
+  components: { Skills, Navbar, Hero, Languanges, Projects, FooterContact },
   data() {
     return {
       profilePicture:

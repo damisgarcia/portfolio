@@ -1,9 +1,6 @@
 <template>
   <div class="navbar-container">
-    <b-navbar
-      :fixed-top="true"
-      :class="isDarkTheme ? 'is-primary' : 'is-transparent'"
-    >
+    <b-navbar :fixed-top="true" class="is-transparent">
       <template slot="end">
         <scrollactive
           tag="div"
@@ -74,7 +71,8 @@ export default {
       text-transform: uppercase;
       &:hover,
       &:active,
-      &:visited {
+      &:visited,
+      &:link {
         color: $dark;
       }
       &.is-active {
