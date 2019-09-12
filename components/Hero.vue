@@ -5,7 +5,7 @@
         <no-ssr>
           <hero-splitting />
         </no-ssr>
-        <div class="subtitle">
+        <div v-if="ready" class="subtitle">
           Sit nulla mollit velit eu proident.
         </div>
       </div>
@@ -22,8 +22,13 @@ export default {
     noSsr,
     heroSplitting
   },
+  data() {
+    return {
+      ready: false
+    }
+  },
   mounted() {
-    window.Splitting()
+    this.ready = true
   }
 }
 </script>
@@ -33,7 +38,7 @@ export default {
   display: flex;
   background-color: transparentize($turquoise, 0.8);
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
   padding: 48px;
   .hero-body {
@@ -58,6 +63,20 @@ export default {
     opacity: 0;
     animation: fadeIn 200ms ease-in forwards;
     animation-delay: 1s;
+  }
+}
+@media (max-width: $tablet) {
+  .hero-wrapper {
+    padding: 24px;
+    .hero {
+      .title {
+        font-size: 32px;
+      }
+      .subtitle {
+        font-size: 18px;
+        margin-top: 0px !important;
+      }
+    }
   }
 }
 @keyframes fadeIn {

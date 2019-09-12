@@ -83,6 +83,7 @@ export default {
     margin-bottom: 3.5rem !important;
   }
 }
+
 .is-profile-picture {
   max-width: 256px;
   margin: auto !important;

@@ -1,41 +1,34 @@
 <template>
   <div class="languanges is-flex">
-    <div
-      class="columns languanges__block--carousel"
-      :style="{
-        '--active-lang-index': activeLangIndex
-      }"
-    >
+    <div class="container-fluid">
       <div
-        v-for="(lang, index) in languanges"
-        :key="lang.slug"
-        class="column is-full is-mobile"
-        :style="{ '--lang-index': index }"
+        class="columns languanges__block--carousel"
+        :style="{
+          '--active-lang-index': activeLangIndex
+        }"
       >
-        <div class="container">
-          <div
-            class="columns lang__block is-gapless is-multiline"
-            :class="{ active: index === activeLangIndex }"
-          >
-            <div class="column">
-              <b-icon :icon="lang.icon" />
-              <div class="title">
-                {{ lang.items.join(' - ') }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="languanges__nav">
-      <div class="columns is-centered">
         <div
           v-for="(lang, index) in languanges"
           :key="lang.slug"
-          class="languanges__nav-step"
+          class="column languanges__block--carousel__item"
           :class="{ active: index === activeLangIndex }"
-          @click="onTapLangStep(index)"
-        ></div>
+        >
+          <b-icon :icon="lang.icon" />
+          <div class="title">
+            {{ lang.items.join(' - ') }}
+          </div>
+        </div>
+      </div>
+      <div class="languanges__nav">
+        <div class="columns is-centered">
+          <div
+            v-for="(lang, index) in languanges"
+            :key="lang.slug"
+            class="languanges__nav-step"
+            :class="{ active: index === activeLangIndex }"
+            @click="onTapLangStep(index)"
+          ></div>
+        </div>
       </div>
     </div>
   </div>
@@ -99,6 +92,7 @@ export default {
   background-color: $white-ter;
   min-height: 360px;
   align-items: center;
+  overflow: hidden;
   &__nav {
     position: absolute;
     height: 32px;
@@ -133,35 +127,68 @@ export default {
     position: relative;
     height: 100%;
     &--carousel {
-      position: absolute;
-      left: 0;
-      right: 0;
       color: $dark;
-      padding: 64px 0px;
+      padding: 86px 0px 64px;
       margin: auto;
       flex-wrap: nowrap;
       overflow: visible;
       transform: translateX(calc(-100% * var(--active-lang-index)));
       transition: transform 800ms cubic-bezier(0.08, 0.82, 0.17, 1);
-      .lang {
-        &__block {
-          height: 100%;
-          opacity: 0;
-          transition: opacity 1s linear;
-          transition-delay: 400ms;
-          &.active {
-            opacity: 1;
+      &__item {
+        flex: none !important;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 1s linear;
+        transition-delay: 400ms;
+        text-align: center;
+        &.active {
+          opacity: 1;
+        }
+        .column {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .icon {
+          margin-right: 3rem;
+          i::before {
+            font-size: 64px;
           }
-          .column {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: $tablet) {
+  .languanges {
+    height: 180px;
+    min-height: 180px;
+    &__nav {
+      .columns {
+        display: flex;
+        flex-direction: row !important;
+      }
+    }
+    &__block {
+      width: 100%;
+      &--carousel {
+        display: flex;
+        flex-direction: row !important;
+        width: 100%;
+        padding: 4px 0px;
+        &__item {
+          display: flex !important;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          flex: none !important;
           .icon {
-            margin-right: 3rem;
-            i::before {
-              font-size: 64px;
-            }
+            display: none;
+          }
+          .title {
+            max-width: 70%;
+            font-size: 21px;
           }
         }
       }
