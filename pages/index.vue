@@ -4,7 +4,7 @@
     <section :id="getLinkId('homepage')">
       <hero />
     </section>
-    <section :id="getLinkId('about')" class="section">
+    <section :id="getLinkId('about')" class="section section--about">
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('about') }}</div>
@@ -31,6 +31,7 @@
         </div>
       </div>
     </section>
+    <languanges />
     <section :id="getLinkId('portfolio')" class="section">
       <div class="section-body">
         <div class="container">
@@ -39,8 +40,7 @@
         </div>
       </div>
     </section>
-    <languanges :id="getLinkId('contact')" />
-    <footer-contact />
+    <footer-contact :id="getLinkId('contact')" />
   </div>
 </template>
 
@@ -76,11 +76,14 @@ export default {
   min-height: 100vh;
   justify-content: center !important;
   padding: 1rem 3.5rem;
-  p {
-    margin: $block-spacing 0px;
-  }
   &__heading {
     margin-bottom: 3.5rem !important;
+  }
+  &--about {
+    min-height: calc(100vh - #{$languagues-height});
+  }
+  p {
+    margin: $block-spacing 0px;
   }
 }
 
@@ -90,5 +93,14 @@ export default {
 }
 .profile-description {
   text-align: center;
+}
+
+@media (max-width: $tablet) {
+  .section {
+    padding: 3.5rem 1.75rem;
+  }
+  .profile-description {
+    text-align: left;
+  }
 }
 </style>

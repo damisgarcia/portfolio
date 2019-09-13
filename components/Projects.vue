@@ -79,7 +79,7 @@
   <div>
     <ul>
       <li v-for="(__tag, index) in $t('tags')" :key="index">
-        <button @click="setTag(__tag)">{{ __tag }}</button>
+        <b-button type="is-dark" @click="setTag(__tag)">{{ __tag }}</b-button>
       </li>
     </ul>
     <ul>
@@ -127,6 +127,11 @@ ul li {
 }
 
 ul li {
-  margin: 0px 4px;
+  margin: 4px;
+}
+
+.button {
+  text-transform: uppercase;
+  border-radius: 0px;
 }
 </style>

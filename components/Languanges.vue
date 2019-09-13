@@ -13,8 +13,8 @@
           class="column languanges__block--carousel__item"
           :class="{ active: index === activeLangIndex }"
         >
-          <b-icon :icon="lang.icon" />
           <div class="title">
+            <b-icon :icon="lang.icon" />
             {{ lang.items.join(' - ') }}
           </div>
         </div>
@@ -54,7 +54,7 @@ export default {
         {
           slug: 'backend',
           icon: 'console-network',
-          items: ['Nodejs', 'Express', 'Ruby on Rails', 'Postgress', 'MySQL']
+          items: ['Nodejs', 'Express', 'Ruby on Rails', 'PostgreSQL', 'MySQL']
         },
         {
           slug: 'cloud-virtualization',
@@ -80,7 +80,7 @@ export default {
         } else {
           this.activeLangIndex++
         }
-      }, 3500)
+      }, 5000)
     }
   }
 }
@@ -90,7 +90,7 @@ export default {
 .languanges {
   position: relative;
   background-color: $white-ter;
-  min-height: 360px;
+  min-height: $languagues-height;
   align-items: center;
   overflow: hidden;
   &__nav {
@@ -149,8 +149,13 @@ export default {
           align-items: center;
           justify-content: center;
         }
+        .title {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
         .icon {
-          margin-right: 3rem;
+          margin-right: 2rem;
           i::before {
             font-size: 64px;
           }
@@ -161,8 +166,8 @@ export default {
 }
 @media (max-width: $tablet) {
   .languanges {
-    height: 180px;
-    min-height: 180px;
+    height: $languagues-height-mobile;
+    min-height: $languagues-height-mobile;
     &__nav {
       .columns {
         display: flex;
