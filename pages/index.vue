@@ -74,10 +74,11 @@ export default {
   flex-direction: column;
   width: 100vw;
   min-height: 100vh;
-  justify-content: center !important;
+  justify-content: flex-start !important;
   padding: 1rem 3.5rem;
   &__heading {
-    margin-bottom: 3.5rem !important;
+    margin: 3.5rem auto;
+    text-align: center;
   }
   &--about {
     min-height: calc(100vh - #{$languagues-height});

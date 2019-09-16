@@ -17,7 +17,7 @@
       {
         "title": "Project 2",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Sites"]
+        "tags": ["Sites", "Aplicativos"]
       },
       {
         "title": "Project 3",
@@ -53,7 +53,7 @@
       {
         "title": "Project 2",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Websites"]
+        "tags": ["Websites", "Apps"]
       },
       {
         "title": "Project 3",
@@ -76,25 +76,36 @@
 </i18n>
 
 <template>
-  <div>
-    <ul>
-      <li v-for="(__tag, index) in $t('tags')" :key="index">
+  <div class="projects">
+    <div class="projects__nav">
+      <div
+        v-for="(__tag, index) in $t('tags')"
+        :key="index"
+        class="projects__nav-item"
+      >
         <b-button type="is-dark" @click="setTag(__tag)">{{ __tag }}</b-button>
-      </li>
-    </ul>
-    <ul>
-      <li v-for="(project, index) in projects" :key="index">
-        <h2 class="title">{{ project.title }}</h2>
-        <p class="subtitle">{{ project.description }}</p>
-        <hr />
-      </li>
-    </ul>
+      </div>
+    </div>
+    <div class="columns is-multiline">
+      <div
+        v-for="(project, index) in projects"
+        :key="index"
+        class="column is-one-quarter"
+      >
+        <card-project :project="project" :index="index" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { filter, values } from 'lodash'
+import CardProject from './CardProject'
+
 export default {
+  components: {
+    CardProject
+  },
   data() {
     return {
       tag: null
@@ -121,6 +132,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.projects {
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 16px 0px;
+  }
+  &__nav-item {
+    display: inline-block;
+    margin: 6px 8px;
+  }
+}
 ul,
 ul li {
   display: inline;
