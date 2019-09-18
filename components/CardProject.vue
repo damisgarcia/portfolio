@@ -3,7 +3,7 @@
     <div class="card-image">
       <figure class="image is-4by3">
         <img
-          :src="`http://lorempixel.com/640/360/technics/${index}/`"
+          :src="`http://lorempixel.com/640/360/technics/${position}/`"
           :alt="project.title"
         />
       </figure>
@@ -21,10 +21,9 @@ export default {
       type: Object,
       required: true
     },
-    index: {
-      type: Number,
-      required: true,
-      default: 0
+    position: {
+      type: String,
+      required: true
     }
   }
 }
@@ -33,6 +32,10 @@ export default {
 <style lang="scss" scoped>
 .project {
   position: relative;
+  transition: opacity 0.6s calc(0.4s * var(--project-index)) linear;
+  &--invisible {
+    opacity: 0;
+  }
   &::after {
     position: absolute;
     content: ' ';
@@ -58,7 +61,8 @@ export default {
       z-index: 3;
       .subtitle {
         color: $white;
-        padding: 16px 0px;
+        padding: 24px 0px;
+        user-select: none;
       }
     }
   }

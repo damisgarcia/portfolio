@@ -83,18 +83,26 @@
         :key="index"
         class="projects__nav-item"
       >
-        <b-button type="is-dark" @click="setTag(__tag)">{{ __tag }}</b-button>
+        <b-button
+          :type="__tag === tag ? 'is-info' : 'is-dark'"
+          tag="div"
+          @click="setTag(__tag)"
+          >{{ __tag }}</b-button
+        >
       </div>
     </div>
-    <div class="columns is-multiline">
+    <transition-group name="project" mode="out-in" class="columns is-multiline">
       <div
         v-for="(project, index) in projects"
-        :key="index"
-        class="column is-one-quarter"
+        :key="project.id"
+        class="column is-one-quarter project"
+        :style="{
+          '--project-index': index
+        }"
       >
-        <card-project :project="project" :index="index" />
+        <card-project :project="project" :position="`${project.id}`" />
       </div>
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -108,19 +116,22 @@ export default {
   },
   data() {
     return {
-      tag: null
+      tag: this.$t('all')
     }
   },
   computed: {
     projects() {
-      let projects = this.$t('projects')
+      const projects = values(this.$t('projects'))
+      const result = projects.map((project, index) => {
+        return { id: index, ...project }
+      })
 
       if (this.tag && this.tag !== this.$t('all')) {
-        projects = filter(projects, (project) => {
+        return filter(result, (project) => {
           return values(project.tags).includes(this.tag)
         })
       }
-      return projects
+      return result
     }
   },
   methods: {
@@ -137,11 +148,34 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 16px 0px;
+    margin: 8px 0px 36px;
   }
   &__nav-item {
     display: inline-block;
     margin: 6px 8px;
+    .button,
+    span {
+      &:hover,
+      &:focus,
+      &:visited,
+      &:active {
+        outline: none;
+      }
+    }
+  }
+  .project-enter-active {
+    transition: all 0.5s calc(0.2s * var(--project-index)) ease-in-out;
+  }
+  .project-leave-active {
+    position: absolute;
+  }
+  .project-enter,
+  .project-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .project-move {
+    transition: transform 0.5s;
   }
 }
 ul,
