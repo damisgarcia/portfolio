@@ -12,27 +12,57 @@
       {
         "title": "Project 1",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Aplicativos"]
+        "picture": "http://lorempixel.com/640/360/technics/1",
+        "tags": ["Aplicativos"],
+        "previews": [
+          "http://lorempixel.com/640/360/technics/1",
+          "http://lorempixel.com/640/360/technics/2",
+          "http://lorempixel.com/640/360/technics/3"
+        ]
       },
       {
         "title": "Project 2",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Sites", "Aplicativos"]
+        "picture": "http://lorempixel.com/640/360/technics/2",
+        "tags": ["Sites", "Aplicativos"],
+        "previews": [
+          "http://lorempixel.com/640/360/technics/1",
+          "http://lorempixel.com/640/360/technics/2",
+          "http://lorempixel.com/640/360/technics/3"
+        ]
       },
       {
         "title": "Project 3",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Sites"]
+        "picture": "http://lorempixel.com/640/360/technics/3",
+        "tags": ["Sites"],
+        "previews": [
+          "http://lorempixel.com/640/360/technics/1",
+          "http://lorempixel.com/640/360/technics/2",
+          "http://lorempixel.com/640/360/technics/3"
+        ]
       },
       {
         "title": "Project 4",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Aplicativos"]
+        "picture": "http://lorempixel.com/640/360/technics/4",
+        "tags": ["Aplicativos"],
+        "previews": [
+          "http://lorempixel.com/640/360/technics/1",
+          "http://lorempixel.com/640/360/technics/2",
+          "http://lorempixel.com/640/360/technics/3"
+        ]
       },
       {
         "title": "Project 5",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Javascript"]
+        "picture": "http://lorempixel.com/640/360/technics/5",
+        "tags": ["Javascript"],
+        "previews": [
+          "http://lorempixel.com/640/360/technics/1",
+          "http://lorempixel.com/640/360/technics/2",
+          "http://lorempixel.com/640/360/technics/3"
+        ]
       }
     ]
   },
@@ -48,27 +78,57 @@
       {
         "title": "Project 1",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Apps"]
+        "picture": "http://lorempixel.com/640/360/technics/1",
+        "tags": ["Apps"],
+        "previews": [
+          "http://lorempixel.com/640/360/technics/1",
+          "http://lorempixel.com/640/360/technics/2",
+          "http://lorempixel.com/640/360/technics/3"
+        ]
       },
       {
         "title": "Project 2",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Websites", "Apps"]
+        "picture": "http://lorempixel.com/640/360/technics/2",
+        "tags": ["Websites", "Apps"],
+        "previews": [
+          "http://lorempixel.com/640/360/technics/1",
+          "http://lorempixel.com/640/360/technics/2",
+          "http://lorempixel.com/640/360/technics/3"
+        ]
       },
       {
         "title": "Project 3",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Websites"]
+        "picture": "http://lorempixel.com/640/360/technics/3",
+        "tags": ["Websites"],
+        "previews": [
+          "http://lorempixel.com/640/360/technics/1",
+          "http://lorempixel.com/640/360/technics/2",
+          "http://lorempixel.com/640/360/technics/3"
+        ]
       },
       {
         "title": "Project 4",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Apps"]
+        "picture": "http://lorempixel.com/640/360/technics/4",
+        "tags": ["Apps"],
+        "previews": [
+          "http://lorempixel.com/640/360/technics/1",
+          "http://lorempixel.com/640/360/technics/2",
+          "http://lorempixel.com/640/360/technics/3"
+        ]
       },
       {
         "title": "Project 5",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "tags": ["Javascript"]
+        "picture": "http://lorempixel.com/640/360/technics/5",
+        "tags": ["Javascript"],
+        "previews": [
+          "http://lorempixel.com/640/360/technics/1",
+          "http://lorempixel.com/640/360/technics/2",
+          "http://lorempixel.com/640/360/technics/3"
+        ]
       }
     ]      
   }
@@ -99,10 +159,45 @@
         :style="{
           '--project-index': index
         }"
+        @click="() => openCardModal(project)"
       >
         <card-project :project="project" :position="`${project.id}`" />
       </div>
     </transition-group>
+    <b-modal
+      :active.sync="isCardModalActive"
+      :width="640"
+      scroll="keep"
+      @close="onCardModalClose"
+    >
+      <div v-if="currentProject" class="card">
+        <div class="card-image">
+          <carousel
+            :per-page="1"
+            :pagination-enabled="true"
+            pagination-position="bottom-overlay"
+          >
+            <slide v-for="(pic, index) in currentProject.previews" :key="index">
+              <picture class="image is-4by3">
+                <img :src="pic" :alt="`Preview ${index}`" />
+              </picture>
+            </slide>
+          </carousel>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">{{ currentProject.title }}</p>
+            </div>
+          </div>
+          <div class="content">
+            {{ currentProject.description }}
+            <br />
+            <small>11:09 PM - 1 Jan 2016</small>
+          </div>
+        </div>
+      </div>
+    </b-modal>
   </div>
 </template>
 
@@ -116,7 +211,9 @@ export default {
   },
   data() {
     return {
-      tag: this.$t('all')
+      tag: '',
+      currentProject: null,
+      isCardModalActive: false
     }
   },
   computed: {
@@ -134,15 +231,25 @@ export default {
       return result
     }
   },
+  created() {
+    this.tag = this.$t('all')
+  },
   methods: {
     setTag(tag) {
       this.tag = tag
+    },
+    openCardModal(project) {
+      this.currentProject = project
+      this.isCardModalActive = true
+    },
+    onCardModalClose() {
+      this.currentProject = null
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .projects {
   &__nav {
     display: flex;
@@ -163,6 +270,13 @@ export default {
       }
     }
   }
+  .project {
+    &:hover,
+    &:active {
+      cursor: pointer;
+      outline: none;
+    }
+  }
   .project-enter-active {
     transition: all 0.5s calc(0.2s * var(--project-index)) ease-in-out;
   }
@@ -177,18 +291,16 @@ export default {
   .project-move {
     transition: transform 0.5s;
   }
-}
-ul,
-ul li {
-  display: inline;
-}
-
-ul li {
-  margin: 4px;
-}
-
-.button {
-  text-transform: uppercase;
-  border-radius: 0px;
+  .card-image {
+    .VueCarousel-pagination--bottom-overlay {
+      margin: 15px auto !important;
+      .VueCarousel-dot-container {
+        margin-top: 0px !important;
+      }
+      .VueCarousel-dot {
+        margin-top: 0px !important;
+      }
+    }
+  }
 }
 </style>

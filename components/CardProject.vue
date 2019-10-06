@@ -2,10 +2,7 @@
   <div class="project card">
     <div class="card-image">
       <figure class="image is-4by3">
-        <img
-          :src="`http://lorempixel.com/640/360/technics/${position}/`"
-          :alt="project.title"
-        />
+        <img :src="project.picture" :alt="project.title" />
       </figure>
       <div class="card-image__content">
         <h2 class="subtitle">{{ project.title }}</h2>

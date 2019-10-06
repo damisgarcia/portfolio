@@ -29,7 +29,8 @@ export default {
    */
   plugins: [
     { src: '~/plugins/splitting', mode: 'client' },
-    { src: '~/plugins/vue-scrollactive', mode: 'client' }
+    { src: '~/plugins/vue-scrollactive', mode: 'client' },
+    { src: '~/plugins/vue-carousel', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules
