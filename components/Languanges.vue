@@ -54,7 +54,7 @@ export default {
         {
           slug: 'backend',
           icon: 'console-network',
-          items: ['Nodejs', 'Express', 'Ruby on Rails', 'PostgreSQL', 'MySQL']
+          items: ['Nodejs', 'Express', 'Ruby on Rails', 'PostgreSQL', 'MariaDB']
         },
         {
           slug: 'cloud-virtualization',

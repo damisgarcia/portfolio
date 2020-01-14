@@ -1,3 +1,14 @@
+<i18n>
+{
+  "pt-br": {
+    "heroDescription": "Conheça um pouco do meu trabalho"
+  },
+  "en": {
+    "heroDescription": "Know a little of my work"
+  }
+}
+</i18n>
+
 <template>
   <div class="hero-wrapper is-light">
     <section class="hero container">
@@ -6,7 +17,7 @@
           <hero-splitting />
         </no-ssr>
         <div v-if="ready" class="subtitle">
-          Sit nulla mollit velit eu proident.
+          {{ $t('heroDescription') }}
         </div>
       </div>
     </section>

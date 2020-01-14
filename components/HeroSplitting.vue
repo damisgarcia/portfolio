@@ -1,8 +1,21 @@
+<i18n>
+{
+  "pt-br": {
+    "hello": "Olá meu nome é",
+    "Iam": "e sou fullstack developer"
+  },
+  "en": {
+    "hello": "Hi my name is",
+    "Iam": "Iam the fullstack developer"
+  }
+}
+</i18n>
+
 <template>
   <div data-splitting class="title hero__block--title">
-    Hi my name is
-    <span class="hero__span--person-name">Garcia</span> <br />
-    a fullstack developer
+    {{ $t('hello') }}
+    <span class="hero__span--person-name">Damis Garcia</span> <br />
+    {{ $t('Iam') }}
   </div>
 </template>
 

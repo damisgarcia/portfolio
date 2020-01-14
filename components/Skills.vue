@@ -19,16 +19,24 @@ export default {
     return {
       data: [
         {
+          skill: 'Javascript',
+          stars: 5
+        },
+        {
           skill: 'CSS',
           stars: 5
         },
         {
-          skill: 'HTML',
+          skill: 'Ruby',
           stars: 4
         },
         {
-          skill: 'Javascript',
-          stars: 4
+          skill: 'Python',
+          stars: 2
+        },
+        {
+          skill: 'Postgresql',
+          stars: 3
         }
       ],
       columns: [
