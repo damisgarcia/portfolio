@@ -2,7 +2,7 @@
   <div class="project card">
     <div class="card-image">
       <figure class="image is-4by3">
-        <img :src="project.picture" :alt="project.title" />
+        <img :src="renderPicture" :alt="project.title" />
       </figure>
       <div class="card-image__content">
         <h2 class="subtitle">{{ project.title }}</h2>
@@ -21,6 +21,11 @@ export default {
     position: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    renderPicture() {
+      return require(`../assets/images/${this.project.picture}`)
     }
   }
 }

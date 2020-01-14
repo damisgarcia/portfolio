@@ -10,58 +10,58 @@
     ],
     "projects": [
       {
-        "title": "Project 1",
-        "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "http://lorempixel.com/640/360/technics/1",
+        "title": "Aedes em foco - ACE",
+        "description": "Aplicativo para auxiliar os agentes de endemias de cedro no controle das arboviroses",
+        "picture": "ace/01.png",
         "tags": ["Aplicativos"],
         "previews": [
-          "http://lorempixel.com/640/360/technics/1",
-          "http://lorempixel.com/640/360/technics/2",
-          "http://lorempixel.com/640/360/technics/3"
+          "ace/01.png",
+          "ace/02.png",
+          "ace/03.png"
         ]
       },
       {
         "title": "Project 2",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "http://lorempixel.com/640/360/technics/2",
+        "picture": "ace/01.png",
         "tags": ["Sites", "Aplicativos"],
         "previews": [
-          "http://lorempixel.com/640/360/technics/1",
-          "http://lorempixel.com/640/360/technics/2",
-          "http://lorempixel.com/640/360/technics/3"
+          "ace/01.png",
+          "ace/02.png",
+          "ace/03.png"
         ]
       },
       {
         "title": "Project 3",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "http://lorempixel.com/640/360/technics/3",
+        "picture": "ace/01.png",
         "tags": ["Sites"],
         "previews": [
-          "http://lorempixel.com/640/360/technics/1",
-          "http://lorempixel.com/640/360/technics/2",
-          "http://lorempixel.com/640/360/technics/3"
+          "ace/01.png",
+          "ace/02.png",
+          "ace/03.png"
         ]
       },
       {
         "title": "Project 4",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "http://lorempixel.com/640/360/technics/4",
+        "picture": "ace/01.png",
         "tags": ["Aplicativos"],
         "previews": [
-          "http://lorempixel.com/640/360/technics/1",
-          "http://lorempixel.com/640/360/technics/2",
-          "http://lorempixel.com/640/360/technics/3"
+          "ace/01.png",
+          "ace/02.png",
+          "ace/03.png"
         ]
       },
       {
         "title": "Project 5",
         "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "http://lorempixel.com/640/360/technics/5",
+        "picture": "ace/01.png",
         "tags": ["Javascript"],
         "previews": [
-          "http://lorempixel.com/640/360/technics/1",
-          "http://lorempixel.com/640/360/technics/2",
-          "http://lorempixel.com/640/360/technics/3"
+          "ace/01.png",
+          "ace/02.png",
+          "ace/03.png"
         ]
       }
     ]
@@ -179,7 +179,10 @@
           >
             <slide v-for="(pic, index) in currentProject.previews" :key="index">
               <picture class="image is-4by3">
-                <img :src="pic" :alt="`Preview ${index}`" />
+                <img
+                  :src="require(`../assets/images/${pic}`)"
+                  :alt="`Preview ${index}`"
+                />
               </picture>
             </slide>
           </carousel>
@@ -229,6 +232,9 @@ export default {
         })
       }
       return result
+    },
+    renderPic() {
+      return require
     }
   },
   created() {
