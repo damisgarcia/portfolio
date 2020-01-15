@@ -1,3 +1,10 @@
+<i18n>
+{
+  "pt-br": {
+    "about": "Arquiteto de Sistemas Web com mais de 4 anos de experiência, apaixonado por Javascript e Mobile"
+  }
+}
+</i18n>
 <template>
   <div>
     <navbar />
@@ -17,9 +24,7 @@
                 </p>
               </figure>
               <p class="profile-description">
-                Voluptate ut dolore sint anim mollit sit qui velit sit irure
-                dolore cupidatat ullamco nostrud. Id velit in non est nulla et
-                consequat.
+                {{ $t('about') }}
               </p>
             </div>
             <div class="column is-9">
