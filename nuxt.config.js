@@ -16,7 +16,6 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  buildDir: 'docs',
   /*
    ** Customize the progress-bar color
    */
