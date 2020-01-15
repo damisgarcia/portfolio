@@ -248,12 +248,15 @@ export default {
       }
     }
     .VueCarousel-pagination--bottom-overlay {
-      margin: 15px auto !important;
+      margin: 15px auto 5px !important;
       .VueCarousel-dot-container {
         margin-top: 0px !important;
       }
       .VueCarousel-dot {
         margin-top: 0px !important;
+        &.VueCarousel-dot--active {
+          background-color: darken($info, 20) !important;
+        }
       }
     }
   }

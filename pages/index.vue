@@ -1,7 +1,7 @@
 <i18n>
 {
   "pt-br": {
-    "about": "Arquiteto de Sistemas Web com mais de 4 anos de experiência, apaixonado por Javascript e Mobile"
+    "aboutMe": "Arquiteto de Sistemas para Internet, trabalhando no desenvolvimento de aplicativos web e mobile há mais de 4 anos"
   }
 }
 </i18n>
@@ -11,7 +11,7 @@
     <section :id="getLinkId('homepage')">
       <hero />
     </section>
-    <section :id="getLinkId('about')" class="section section--about">
+    <section :id="getLinkId('aboutMe')" class="section section--about">
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('about') }}</div>
@@ -24,7 +24,7 @@
                 </p>
               </figure>
               <p class="profile-description">
-                {{ $t('about') }}
+                {{ $t('aboutMe') }}
               </p>
             </div>
             <div class="column is-9">
@@ -97,6 +97,7 @@ export default {
   margin: auto !important;
 }
 .profile-description {
+  font-size: 14px;
   text-align: center;
 }
 
