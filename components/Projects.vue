@@ -10,8 +10,8 @@
     ],
     "projects": [
       {
-        "title": "Aedes em foco - ACE",
-        "description": "Aplicativo para auxiliar os agentes de endemias de cedro no controle das arboviroses",
+        "title": "Aedes em foco - Agente de Endemias",
+        "description": "Aplicativo para auxiliar os agentes de endemias no controle das arboviroses",
         "picture": "ace/01.png",
         "tags": ["Aplicativos"],
         "previews": [
@@ -21,117 +21,49 @@
         ]
       },
       {
-        "title": "Project 2",
-        "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "ace/01.png",
-        "tags": ["Sites", "Aplicativos"],
+        "title": "Aedes em foco - Agente de Saúde",
+        "description": "Aplicativo para auxiliar os agentes de saúde para mapeamento da população",
+        "picture": "acs/01.png",
+        "tags": ["Aplicativos"],
         "previews": [
-          "ace/01.png",
-          "ace/02.png",
-          "ace/03.png"
-        ]
+          "acs/01.png",
+          "acs/02.png",
+          "acs/03.png"
+        ]        
       },
       {
-        "title": "Project 3",
-        "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "ace/01.png",
+        "title": "FB Online",
+        "description": "Website e Frontend da aplicação da plataforma de ensino a distância",
+        "picture": "fbonline/01.png",
+        "tags": ["Javascript", "Sites"],
+        "previews": [
+          "fbonline/01.png",
+          "fbonline/02.png",
+          "fbonline/03.png"
+        ],
+        "link": "https://www.fbonline.com.br/"
+      },
+      {
+        "title": "Aedes em Foco",
+        "description": "Website do programa Aedes em foco.",
+        "picture": "aedesemfoco/01.png",
         "tags": ["Sites"],
         "previews": [
-          "ace/01.png",
-          "ace/02.png",
-          "ace/03.png"
-        ]
+          "aedesemfoco/01.png"
+        ],
+        "link": "http://aedesemfoco.lme.ufc.br/"
       },
       {
-        "title": "Project 4",
-        "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "ace/01.png",
-        "tags": ["Aplicativos"],
+        "title": "Luz do Saber - Fundamental",
+        "description": "Arquito no desenvolvimento frontend do novo software de ensino do programa Luz do Saber versão fundamental",
+        "picture": "luzdosaber/01.png",
+        "tags": ["Javascript", "Sites"],
         "previews": [
-          "ace/01.png",
-          "ace/02.png",
-          "ace/03.png"
-        ]
-      },
-      {
-        "title": "Project 5",
-        "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "ace/01.png",
-        "tags": ["Javascript"],
-        "previews": [
-          "ace/01.png",
-          "ace/02.png",
-          "ace/03.png"
+          "luzdosaber/01.png"
         ]
       }
     ]
-  },
-  "en": {
-    "all": "All",
-    "tags": [
-      "All",
-      "Apps",
-      "Websites",
-      "Javascript"
-    ],
-    "projects": [
-      {
-        "title": "Project 1",
-        "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "http://lorempixel.com/640/360/technics/1",
-        "tags": ["Apps"],
-        "previews": [
-          "http://lorempixel.com/640/360/technics/1",
-          "http://lorempixel.com/640/360/technics/2",
-          "http://lorempixel.com/640/360/technics/3"
-        ]
-      },
-      {
-        "title": "Project 2",
-        "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "http://lorempixel.com/640/360/technics/2",
-        "tags": ["Websites", "Apps"],
-        "previews": [
-          "http://lorempixel.com/640/360/technics/1",
-          "http://lorempixel.com/640/360/technics/2",
-          "http://lorempixel.com/640/360/technics/3"
-        ]
-      },
-      {
-        "title": "Project 3",
-        "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "http://lorempixel.com/640/360/technics/3",
-        "tags": ["Websites"],
-        "previews": [
-          "http://lorempixel.com/640/360/technics/1",
-          "http://lorempixel.com/640/360/technics/2",
-          "http://lorempixel.com/640/360/technics/3"
-        ]
-      },
-      {
-        "title": "Project 4",
-        "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "http://lorempixel.com/640/360/technics/4",
-        "tags": ["Apps"],
-        "previews": [
-          "http://lorempixel.com/640/360/technics/1",
-          "http://lorempixel.com/640/360/technics/2",
-          "http://lorempixel.com/640/360/technics/3"
-        ]
-      },
-      {
-        "title": "Project 5",
-        "description": "Id ut in labore laborum eiusmod magna id veniam.",
-        "picture": "http://lorempixel.com/640/360/technics/5",
-        "tags": ["Javascript"],
-        "previews": [
-          "http://lorempixel.com/640/360/technics/1",
-          "http://lorempixel.com/640/360/technics/2",
-          "http://lorempixel.com/640/360/technics/3"
-        ]
-      }
-    ]      
-  }
+  }  
 }
 </i18n>
 
@@ -194,9 +126,13 @@
             </div>
           </div>
           <div class="content">
-            {{ currentProject.description }}
-            <br />
-            <small>11:09 PM - 1 Jan 2016</small>
+            {{ currentProject.description }} <br />
+            <a
+              v-if="currentProject.link"
+              :href="currentProject.link"
+              target="_blank"
+              >Visitar Página</a
+            >
           </div>
         </div>
       </div>
@@ -257,6 +193,13 @@ export default {
 
 <style lang="scss">
 .projects {
+  .modal {
+    .card .card-content {
+      .media {
+        margin-bottom: 0px !important;
+      }
+    }
+  }
   &__nav {
     display: flex;
     flex-wrap: wrap;
@@ -298,6 +241,12 @@ export default {
     transition: transform 0.5s;
   }
   .card-image {
+    &__content {
+      .subtitle {
+        font-size: 1.15rem;
+        padding: 24px !important;
+      }
+    }
     .VueCarousel-pagination--bottom-overlay {
       margin: 15px auto !important;
       .VueCarousel-dot-container {

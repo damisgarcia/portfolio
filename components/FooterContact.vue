@@ -24,11 +24,11 @@ export default {
       social: [
         {
           icon: 'github-box',
-          href: 'https://github.com'
+          href: 'https://github.com/damisgarcia'
         },
         {
           icon: 'linkedin-box',
-          href: 'https://linkedin.com'
+          href: 'https://www.linkedin.com/in/damis-garcia-do-vale-15124562/'
         }
       ]
     }

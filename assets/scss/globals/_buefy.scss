@@ -36,4 +36,6 @@ body {
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
