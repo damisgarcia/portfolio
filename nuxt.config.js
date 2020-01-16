@@ -40,7 +40,7 @@ export default {
     '@nuxtjs/eslint-module'
   ],
   router: {
-    base: '/profile/'
+    base: '/portfolio/'
   },
   /*
    ** Nuxt.js modules
