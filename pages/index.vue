@@ -11,7 +11,7 @@
     <section :id="getLinkId('homepage')">
       <hero />
     </section>
-    <section :id="getLinkId('aboutMe')" class="section section--about">
+    <section :id="getLinkId('about')" class="section section--about">
       <div class="section-body">
         <div class="container">
           <div class="title section__heading">{{ $t('about') }}</div>
