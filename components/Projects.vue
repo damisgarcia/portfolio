@@ -55,7 +55,7 @@
       },
       {
         "title": "Luz do Saber - Fundamental",
-        "description": "Arquito no desenvolvimento frontend do novo software de ensino do programa Luz do Saber versão fundamental",
+        "description": "Arquiteto no desenvolvimento frontend do novo software de ensino do programa Luz do Saber versão fundamental",
         "picture": "luzdosaber/01.png",
         "tags": ["Javascript", "Sites"],
         "previews": [
